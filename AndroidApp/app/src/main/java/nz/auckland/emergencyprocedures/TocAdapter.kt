@@ -1,10 +1,10 @@
-package nz.auckland.emergencyprocedures
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import nz.auckland.emergencyprocedures.R
+import nz.auckland.emergencyprocedures.TocItem
 
 class TocAdapter(
     private val items: List<TocItem>,
@@ -12,10 +12,15 @@ class TocAdapter(
 ) : RecyclerView.Adapter<TocAdapter.TocViewHolder>() {
 
     inner class TocViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val numberText: TextView = itemView.findViewById(R.id.tocNumber)
         private val titleText: TextView = itemView.findViewById(R.id.tocTitle)
+        private val subtitleText: TextView = itemView.findViewById(R.id.tocSubtitle)
 
-        fun bind(item: TocItem) {
+        fun bind(item: TocItem, position: Int) {
+            numberText.text = (position + 1).toString()
             titleText.text = item.title
+            subtitleText.text = "Page ${item.pageIndex + 1}"
+
             itemView.setOnClickListener { onItemClick(item) }
         }
     }
@@ -27,8 +32,9 @@ class TocAdapter(
     }
 
     override fun onBindViewHolder(holder: TocViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], position)
     }
 
     override fun getItemCount(): Int = items.size
 }
+
