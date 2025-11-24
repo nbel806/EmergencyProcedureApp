@@ -1,46 +1,50 @@
 package nz.auckland.emergencyprocedures
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import nz.auckland.emergencyprocedures.ui.theme.EmergencyProceduresTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.github.barteksc.pdfviewer.PDFView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var pdfView: PDFView
+    private lateinit var tocRecyclerView: RecyclerView
+
+    private val pdfFileName = "emergency_procedures.pdf"
+
+    private val tocItems = listOf(
+        TocItem("Introduction", 0),
+        TocItem("Safety Procedures", 3),
+        TocItem("Fire Evacuation", 7),
+        TocItem("Earthquake Response", 12),
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            EmergencyProceduresTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        setContentView(R.layout.activity_pdf_toc)
+
+        pdfView = findViewById(R.id.pdfView)
+        tocRecyclerView = findViewById(R.id.tocRecyclerView)
+
+        // Init TOC
+        tocRecyclerView.layoutManager = LinearLayoutManager(this)
+        tocRecyclerView.adapter = TocAdapter(tocItems) { item ->
+            // Jump to page when a TOC item is tapped
+            pdfView.jumpTo(item.pageIndex, true)
         }
+
+        // Load PDF (from assets)
+        loadPdf()
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EmergencyProceduresTheme {
-        Greeting("Android")
+    private fun loadPdf() {
+        // Put the file in app/src/main/assets/emergency_procedures.pdf
+        pdfView.fromAsset(pdfFileName)
+            .defaultPage(0)
+            .enableSwipe(true)
+            .swipeHorizontal(false)
+            .enableDoubletap(true)
+            .load()
     }
 }
