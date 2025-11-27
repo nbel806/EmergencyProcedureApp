@@ -12,10 +12,19 @@ import androidx.appcompat.widget.Toolbar
 class TocActivity : AppCompatActivity() {
 
     private val tocItems = listOf(
-        TocItem("Introduction", 0),
-        TocItem("Safety Procedures", 3),
-        TocItem("Fire Evacuation", 7),
-        TocItem("Earthquake Response", 12)
+        TocItem("Cover Page", 0),
+        TocItem("Auckland Hospital Map", 1),
+        TocItem("Greenlane Clinical Center Map", 2),
+        TocItem("Initial Actions", 4),
+        TocItem("Fire & R.A.C.E", 7),
+        TocItem("Loss of Essential Services", 9),
+        TocItem("Threat to Personal Safety", 11),
+        TocItem("Hospital Evacuation", 13),
+        TocItem("Natural Hazards", 15),
+        TocItem("Bomb, Chemical Threat and Suspicious Objects", 17),
+        TocItem("Hazardous Materials", 19),
+        TocItem("Missing Patient", 21),
+        TocItem("Major Incident Event", 23)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
