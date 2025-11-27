@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "nz.auckland.emergencyprocedures.app-mergeDebugResources-52:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/nathan/.gradle/caches/transforms-3/24ed7a5c4eb0c7bd293917841cfa91d0/transformed/appcompat-1.7.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
