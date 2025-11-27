@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<style name="Theme.EmergencyProcedures" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/ep_primary</item>
+    <item name="colorPrimaryDark">@color/ep_primaryDark</item>
+    <item name="colorAccent">@color/ep_accent</item>
+
+    <item name="android:statusBarColor">@color/ep_primaryDark</item>
+
+    <item name="android:windowBackground">@color/ep_bg</item>
+
+    <item name="android:textColorPrimary">@color/ep_text_primary</item>
+    <item name="android:textColorSecondary">@color/ep_text_secondary</item>
+</style>
+
+</resources>
