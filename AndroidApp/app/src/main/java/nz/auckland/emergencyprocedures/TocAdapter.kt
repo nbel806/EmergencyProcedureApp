@@ -12,15 +12,10 @@ class TocAdapter(
 ) : RecyclerView.Adapter<TocAdapter.TocViewHolder>() {
 
     inner class TocViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val numberText: TextView = itemView.findViewById(R.id.tocNumber)
         private val titleText: TextView = itemView.findViewById(R.id.tocTitle)
-        private val subtitleText: TextView = itemView.findViewById(R.id.tocSubtitle)
 
         fun bind(item: TocItem, position: Int) {
-            numberText.text = (position + 1).toString()
             titleText.text = item.title
-            subtitleText.text = "Page ${item.pageIndex + 1}"
-
             itemView.setOnClickListener { onItemClick(item) }
         }
     }
@@ -37,4 +32,5 @@ class TocAdapter(
 
     override fun getItemCount(): Int = items.size
 }
+
 
