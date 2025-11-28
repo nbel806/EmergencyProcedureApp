@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_chevron_right
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id pdfTopAppBar
+id pdfView
+id tocArrow
+id tocNumber
+id tocRecyclerView
+id tocSubtitle
+id tocTitle
+id topAppBar
+layout activity_pdf
+layout activity_toc
+layout item_toc
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.EmergencyProcedures
+xml backup_rules
+xml data_extraction_rules
