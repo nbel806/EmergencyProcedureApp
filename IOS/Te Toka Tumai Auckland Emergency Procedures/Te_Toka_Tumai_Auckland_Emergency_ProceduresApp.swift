@@ -1,17 +1,40 @@
-//
-//  Te_Toka_Tumai_Auckland_Emergency_ProceduresApp.swift
-//  Te Toka Tumai Auckland Emergency Procedures
-//
-//  Created by Nathan Bell on 19/11/2025.
-//
-
 import SwiftUI
 
 @main
-struct Te_Toka_Tumai_Auckland_Emergency_ProceduresApp: App {
+struct TeTokaTumaiApp: App {
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Color.epPrimary)
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+        appearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+
+        let backAppearance = UIBarButtonItemAppearance()
+        backAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.disabled.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.focused.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        appearance.backButtonAppearance = backAppearance
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+
+
+        UINavigationBar.appearance().tintColor = .white
+
+        UITableView.appearance().separatorColor = UIColor(Color.epDivider)
+        UITableView.appearance().backgroundColor = .clear
+    }
+
     var body: some Scene {
         WindowGroup {
             IndexView(tocItems: tocItems)
+                .tint(Color.epAccent)
         }
     }
 }
