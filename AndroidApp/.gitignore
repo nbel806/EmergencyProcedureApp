@@ -168,5 +168,7 @@ fabric.properties
 # OS junk
 Thumbs.db
 
+workspace.xml
+
 # Sign-in keys (don't commit these!)
 
