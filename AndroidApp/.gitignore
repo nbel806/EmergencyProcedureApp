@@ -168,6 +168,10 @@ fabric.properties
 # OS junk
 Thumbs.db
 
+*/.DS_Store
+
+
+
 workspace.xml
 
 # Sign-in keys (don't commit these!)
