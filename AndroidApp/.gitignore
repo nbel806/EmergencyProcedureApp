@@ -154,3 +154,19 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio
 /app/build/
 /.gradle/
+
+# Built application files
+/app/build
+
+# Gradle files
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+.idea/
+.cxx/
+
+# OS junk
+Thumbs.db
+
+# Sign-in keys (don't commit these!)
+
