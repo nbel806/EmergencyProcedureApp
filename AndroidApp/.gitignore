@@ -9,6 +9,8 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+*/build
+app/build
 /captures
 .externalNativeBuild
 .cxx
@@ -150,3 +152,28 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio
+/app/build/
+/.gradle/
+
+# Built application files
+/app/build
+
+# Gradle files
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+.idea/
+.cxx/
+
+# OS junk
+Thumbs.db
+
+**/.DS_Store
+
+
+
+
+workspace.xml
+
+# Sign-in keys (don't commit these!)
+

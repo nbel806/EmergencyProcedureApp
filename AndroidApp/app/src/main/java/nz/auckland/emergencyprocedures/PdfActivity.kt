@@ -12,9 +12,8 @@ class PdfActivity : AppCompatActivity() {
     private lateinit var pdfView: PDFView
     private lateinit var titleView: TextView
 
-    private val pdfFileName = "emergency_procedures.pdf"   // in assets/
+    private val pdfFileName = "EmergencyProcedures25-11.pdf"
 
-    // Map of section title -> starting page (0-based, same as your Android & iOS TOC)
     private val tocSections = listOf(
         "Cover Page" to 0,
         "Auckland Hospital Map" to 1,
