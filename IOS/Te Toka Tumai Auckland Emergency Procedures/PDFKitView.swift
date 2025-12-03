@@ -39,11 +39,13 @@ struct PDFKitView: UIViewRepresentable {
         pdfView.autoScales = true
         pdfView.displayMode = .singlePage
         pdfView.displayDirection = .horizontal
+
+        pdfView.backgroundColor = UIColor(Color.background)
+        pdfView.documentView?.backgroundColor = UIColor(Color.background)
         pdfView.usePageViewController(true, withViewOptions: [
             "interPageSpacing": 16
         ])
-        pdfView.backgroundColor = UIColor(Color.epBgDark)
-        pdfView.documentView?.backgroundColor = UIColor(Color.epBgDark)
+
 
         if
             let url = Bundle.main.url(forResource: pdfName, withExtension: "pdf"),

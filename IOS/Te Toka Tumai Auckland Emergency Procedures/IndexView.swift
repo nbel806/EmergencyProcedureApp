@@ -13,7 +13,7 @@ struct IndexView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.epBg
+                Color.background
                     .ignoresSafeArea()
 
                 List {
@@ -28,28 +28,29 @@ struct IndexView: View {
                             } label: {
                                 Text(item.title)
                                     .font(.headline)
-                                    .foregroundColor(.epTextPrimary)
+                                    .foregroundColor(Color.primary)
                                     .padding(.vertical, 2)
                             }
                         }
                     } header: {
                         Text("Emergency Procedures")
                             .font(.title3.weight(.semibold))
-                            .foregroundColor(.epTextMuted)
+                            .foregroundColor(.textMuted)
                             .padding(.bottom, 4)
                             .textCase(nil) // keep normal case
                     } footer: {
                         Text("Tap a section to jump straight to its page. Swipe left or right to move between pages.")
                             .font(.footnote)
-                            .foregroundColor(.epTextSecondary)
+                            .foregroundColor(.textSecondary)
                             .padding(.top, 4)
                     }
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.insetGrouped)
             }
-            .navigationTitle("Quick Access")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(Text("Quick Access"))
+            
         }
     }
 }

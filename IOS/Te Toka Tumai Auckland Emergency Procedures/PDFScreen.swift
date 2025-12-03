@@ -33,7 +33,7 @@ struct PDFScreen: View {
                 }
             }
         )
-        .background(Color.epBgDark.ignoresSafeArea())
+        .background(Color.background.ignoresSafeArea())
         .navigationTitle(currentTitle)
         .navigationBarTitleDisplayMode(.inline)
     }
