@@ -1,9 +1,3 @@
-//
-//  PDFScreen.swift
-//  Te Toka Tumai Auckland Emergency Procedures
-//
-//  Created by Nathan Bell on 28/11/2025.
-//
 import SwiftUI
 import PDFKit
 
@@ -13,13 +7,18 @@ struct PDFScreen: View {
     let tocItems: [TOCItem]
 
     @State private var currentTitle: String
+    @State private var currentColor: Color
 
     init(pdfName: String, startPage: Int, tocItems: [TOCItem]) {
         self.pdfName = pdfName
         self.startPage = startPage
         self.tocItems = tocItems
+
         _currentTitle = State(
             initialValue: PDFScreen.title(forPage: startPage, tocItems: tocItems)
+        )
+        _currentColor = State(
+            initialValue: PDFScreen.color(forPage: startPage, tocItems: tocItems)
         )
     }
 
@@ -30,17 +29,28 @@ struct PDFScreen: View {
             onPageChange: { pageIndex in
                 withAnimation(.easeInOut(duration: 0.15)) {
                     currentTitle = PDFScreen.title(forPage: pageIndex, tocItems: tocItems)
+                    currentColor = PDFScreen.color(forPage: pageIndex, tocItems: tocItems)
                 }
             }
         )
         .background(Color.background.ignoresSafeArea())
         .navigationTitle(currentTitle)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(currentColor, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
     }
+
 
     static func title(forPage page: Int, tocItems: [TOCItem]) -> String {
         tocItems
             .last(where: { $0.pageIndex <= page })?
             .title ?? "Emergency Procedures"
+    }
+
+    static func color(forPage page: Int, tocItems: [TOCItem]) -> Color {
+        tocItems
+            .last(where: { $0.pageIndex <= page })?
+            .colour ?? Color.accentColor
     }
 }
